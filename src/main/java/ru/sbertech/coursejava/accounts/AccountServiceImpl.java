@@ -1,9 +1,10 @@
-package ru.sbertech.coursejava.main.accounts;
+package ru.sbertech.coursejava.accounts;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class AccountServiceImpl implements AccountService {
+
     public static final String LOGIN = "login";
     public static final String PASSWORD = "password";
 

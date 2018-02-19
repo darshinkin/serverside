@@ -1,4 +1,4 @@
-package ru.sbertech.coursejava.main.accounts;
+package ru.sbertech.coursejava.accounts;
 
 public class UserProfile {
     private final String login;

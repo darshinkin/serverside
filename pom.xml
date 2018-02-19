@@ -11,6 +11,8 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <com.h2database.h2.version>1.4.187</com.h2database.h2.version>
+        <org.hibernate.hibernate-core.version>4.3.10.Final</org.hibernate.hibernate-core.version>
     </properties>
 
 
@@ -30,7 +32,16 @@
             <artifactId>freemarker</artifactId>
             <version>2.3.1</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${com.h2database.h2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${org.hibernate.hibernate-core.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -52,7 +63,7 @@
                     <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
-                            <mainClass>ru.sbertech.coursejava.main.Main</mainClass>
+                            <mainClass>ru.sbertech.coursejava.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
