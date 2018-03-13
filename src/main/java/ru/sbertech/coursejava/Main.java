@@ -70,9 +70,10 @@ public class Main {
         dbService.check();
 
         AccountService accountService = new AcountServiceDBImpl(dbService);
-        System.out.println("Created accountService");
+        logger.info("Created accountService");
 
         AccountServer accountServer = new AccountServerImpl(10);
+        logger.info("Created accountServer");
         createMBean(accountServer);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
@@ -83,6 +84,7 @@ public class Main {
         context.addServlet(new ServletHolder(new AdminPageServlet(accountServer)), AdminPageServlet.PAGE_URL);
 
         Server server = new Server(port);
+        logger.info("Created server");
 
         ResourceHandler resource_handler = new ResourceHandler();
         resource_handler.setDirectoriesListed(true);
@@ -93,7 +95,7 @@ public class Main {
         server.setHandler(handlers);
 
         server.start();
-        System.out.println("Server started");
+        logger.info("Server started");
         server.join();
     }
 
@@ -102,5 +104,6 @@ public class Main {
         MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
         ObjectName name = new ObjectName("Admin:type=AccountServerController");
         mbs.registerMBean(serverStatistics, name);
+        logger.info("Created MBean: Admin:type=AccountServerController");
     }
 }
